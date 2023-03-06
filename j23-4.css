@@ -1,0 +1,338 @@
+/* section {box-shadow: 0 0 25px purple,0 0 5px white;} */
+/* aside,nav{box-shadow: 0 0 25px blue,0 0 5px white;} */
+/* div{box-shadow: 0 0 25px gold,0 0 5px white;} */
+@keyframes starflash {
+  from {opacity: 0.8;}
+  to {opacity: 0;}
+}
+@keyframes darkflash {
+  from {opacity: 0.2;}
+  to {opacity: 0.9;}
+}
+@keyframes sunlight {
+  from {box-shadow:0 0 5vh gold, 0 0 10vh gold, 0 0 20vh gold;}
+  to {box-shadow: 0 0 10vh yellow,0 0 20vh red;}
+}
+@keyframes sunflash {
+  from {box-shadow: 0 0 80px red,0 0 50px red;}
+  to {box-shadow: 0 0 30px gold,0 0 50px gold;}
+}
+@keyframes nightlight {
+  from {box-shadow:0 0 50px red, 0 0 80px red, 0 0 130px red;}
+  to {box-shadow: 0 0 20px pink,0 0 40px darkred;}
+}
+@keyframes moonlight {
+  from {box-shadow:10px 10px 6px white, 10px 10px 20px gold, 0px 0px 20px gold,10px 10px 30px white; }
+  to {box-shadow: 0 0 10px gold, 0 0 30px white;}
+}
+@keyframes spin {
+  from {transform: rotate(0);}
+  to {transform: rotate(360deg);}
+}
+@keyframes unSpin {
+  from {transform: rotate(0);}
+  to {transform: rotate(-360deg);}
+}
+body{
+  background: radial-gradient(black,#444);
+}
+#universe{
+  max-width: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+#nep-orbit {/* 外圍 */
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  width: 2%;
+  transform-origin: 50% 100%;
+
+  height: 60%;
+  margin-top: -60%;
+  animation: spin  300s linear infinite;
+}
+#neptune {
+  width: 300%;
+  animation: spin 15s linear infinite;
+}
+#com-orbit {/* 外圍 */
+  position:absolute;
+  top: -18%;
+  left: -10%;
+  width: 2%;
+  transform-origin: 50% 100%;
+
+  height: 10%;
+  margin-top: -10%;
+  animation: spin  240s linear infinite;
+}
+#comet {
+  width: 250%;
+  margin-top: -10000%;
+  transform: rotate(205deg);
+}
+
+/* ==========================================  太陽系 */
+#solar {
+  /* max-width: 98vh;
+  max-height: 98vh; */
+  /* 海(茄)、森、赤(碼)、幻紫、宇(鐘) */
+  margin: 0 auto;
+}
+.main>section,#sun {        /* 軌道和太陽：於鐘上置中對齊 */
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% 100%;
+  /* 上列為一般通用，但不適於指針軌 */
+  width: 2%;
+  margin-left: -1%;
+}
+.main>section>img {         /* 星球和指針：於鐘上置中對齊 */
+  position: absolute;
+  left: 50%;
+}
+
+
+
+#sun {
+  width: 6%;
+  margin-top: -3%;
+  margin-left: -3%;
+  box-shadow: 0 0 30px gold;
+  animation: sunlight 2.5s infinite alternate;
+  border-radius: 50%;
+}
+#sun:hover{
+  animation: sunflash 0.5s infinite alternate;
+  width: 6.4%;
+  margin-top: -3.2%;
+  margin-left: -3.2%;
+  transition: 1s;
+}
+
+/* =================================================== 行星們 */
+#mer-orbit {
+  height: 8.5%;
+  margin-top: -8.5%;
+  animation: spin 6s linear infinite;
+}
+#mercury {
+  width: 120%;
+  animation: spin 6s linear infinite;
+}
+#ven-orbit {
+  height: 13%;
+  margin-top: -13%;
+  animation: spin 15s linear infinite;
+}
+#venus {
+  width: 170%;
+  animation: unSpin 5s linear infinite;
+}
+#ear-orbit {/* 時針軌 */
+  height: 19%;
+  margin-top: -19%;
+  transition: 5s;
+}
+section>img#hour{     /* 時針。需增加優先權 */
+  height: 150%;
+  top: -20%;
+  margin-left: -260%;
+}
+#earth {
+  width: 230%;
+  animation: spin 4s linear infinite;
+  margin-left: -66%;
+}
+#moo-orbit {
+  position:absolute;
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 23%;
+  margin-top: -90%;
+  margin-left: -50%;
+  transform-origin: 50% 100%;
+  animation: spin 10s linear infinite;
+}
+#moon {
+  width: 68%;
+  position:absolute;
+  left: 20%;
+  border-radius: 50%;
+  animation: spin 10s linear infinite;
+  animation: moonlight 5s infinite alternate;
+}
+#mar-orbit {/* 分針軌 */
+  height: 27%;
+  margin-top: -27%;
+  transition: 3s;
+}
+section>img#minute{     /* 分針。需增加優先權 */
+  top: -18%; /* 原-15% */
+  left: 25%;
+  height: 150%; /* 原135% */
+  margin-left: -230%;
+}
+#mars {
+  width: 210%;
+  margin-left: -65%;
+  animation: spin 12s linear infinite;
+}
+#jup-orbit {
+  height: 38%;
+  margin-top: -38%;
+  animation: spin 180s linear infinite;
+}
+#jupiter {
+  width: 500%;
+  animation: spin 12s linear infinite;
+}
+#sat-orbit {
+  height: 44%;
+  margin-top: -44%;
+}
+#saturn {
+  width: 580%;
+  margin-left: -230%;
+  animation: spin 30s linear infinite;
+}
+#ura-orbit {/* 秒針 */
+  height: 49%;
+  margin-top: -49%;
+}
+section>img#second{     /* 需利用2層選取器增加優先權 */
+  height: 108%;
+  margin-left: -220%;
+  top: 7%;
+}
+#uranus {
+  width: 200%;
+  margin-left: -50%;
+  margin-top: -40%;
+  animation: spin 2s linear infinite;
+}
+
+/* ============================================article */
+#watchface{
+  animation: darkflash 12s infinite alternate;
+  background-image: url(./j23watch/stars-1.png);
+  background-size: contain;
+}
+.stars-1 {
+  animation: starflash 5s infinite alternate;
+}
+.stars-2 {
+  animation: darkflash 5s infinite alternate;
+}
+article>* {         /* 第一子層 */
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;  height: 100%;   /* 產生滿版的透明底色 */
+}
+.lightbox {         /* 第一子層 */
+  z-index: -1;
+  background-color: #000000aa;  /* 以透明底色使背景變暗 */
+  padding: 2%;
+}
+.lightbox > img {
+  width: 55%;
+  float: right;
+}
+.lightbox:target {
+  z-index: 1;   /* 被點到者 則顯示 */
+}
+.lightbox > div{
+  color: white;
+  text-shadow: 0 0 15px black;
+}
+article>a{
+  text-decoration: none;
+}
+
+/* ================================================== header */
+.infomation{
+  font-size: 2.5vmin;
+  margin: 3%;
+  color: lightgray;
+}
+.info-down{
+  position: absolute;
+  top: 60%;
+  width: 94%;
+}
+#up-title{
+  margin-top: 23%;
+  font-size: 4vmin;
+}
+#up-body{
+  font-size: 2.5vmin;
+}
+.down-timer{
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  font-size: 8vmin;  
+}
+a>div>h1{
+  font-size: 5vmin;
+}
+a>div>h4{
+  font-size: 3vmin;
+}
+
+/* ================================================== aside */
+nav{
+  color: white;  
+  position: absolute;
+  width: 38%;
+}
+.nav-1{
+  top: 0;
+  left: 0;
+}
+.nav-2{
+  top: 0;
+  right: 0;
+}
+.nav-3{
+  bottom: 0;
+  left: 0;
+}
+.nav-4{
+  right: 0;
+  bottom: 0;
+}
+
+aside>nav>div{
+  display: none;
+}
+nav>input,nav>a>input{
+  background-color:dimgray;
+  color: aliceblue;
+}
+nav>div>input,nav>div>button{
+  background-color:blue;
+  color: yellow;
+  border-radius: 50%;
+  font-size: 2vmin;
+}
+
+aside{
+  font-size: 2.5vmin;
+}
+/* ===========================================================全區 */
+h1{
+  text-align: center;
+  font-weight: bold;
+  color: aliceblue;
+}
+
+@media (max-height: 350px){
+  .d-show{
+    display: none;
+  }
+}
