@@ -2,10 +2,14 @@
 /* aside,nav{box-shadow: 0 0 25px blue,0 0 5px white;} */
 /* div{box-shadow: 0 0 25px gold,0 0 5px white;} */
 @keyframes starflash {
-  from {opacity: 0.8;}
-  to {opacity: 0;}
+  from {opacity: 1;}
+  to {opacity: 0.1;}
 }
 @keyframes darkflash {
+  from {opacity: 0;}
+  to {opacity: 0.8;}
+}
+@keyframes clockflash {
   from {opacity: 0.2;}
   to {opacity: 0.9;}
 }
@@ -217,15 +221,15 @@ section>img#second{     /* 需利用2層選取器增加優先權 */
 
 /* ============================================article */
 #watchface{
-  animation: darkflash 12s infinite alternate;
+  animation: clockflash 12s infinite alternate;
   background-image: url(./j23watch/stars-1.png);
   background-size: contain;
 }
 .stars-1 {
-  animation: starflash 5s infinite alternate;
+  animation: starflash 4s infinite alternate;
 }
 .stars-2 {
-  animation: darkflash 5s infinite alternate;
+  animation: darkflash 3s infinite alternate;
 }
 article>* {         /* 第一子層 */
   position: absolute;
